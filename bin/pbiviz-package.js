@@ -32,6 +32,7 @@ let ConsoleWriter = require('../lib/ConsoleWriter');
 let PbivizBuilder = require('../lib/PbivizBuilder');
 let VisualBuilder = require('../lib/VisualBuilder');
 let CommandHelpManager = require('../lib/CommandHelpManager');
+let PreProcessor = require('../lib/PreProcessor');
 let options = process.argv;
 
 program
@@ -39,6 +40,9 @@ program
     .option('--no-pbiviz', "Doesn't produce a pbiviz file (must be used in conjunction with resources flag)")
     .option('--no-minify', "Doesn't minify the js in the package (useful for debugging)")
     .option('--no-plugin', "Doesn't include a plugin declaration to the package (must be used in conjunction with --no-pbiviz and --resources flags)")
+    .option('--pro', "Generates build with guid appended with '_PRO' to differentiate custom build from the published build")
+    .option('--build-version <version>', "Generates build with the sepcified verison")
+    .option('--tag <tag>', "Adds provided tag to the visual's display name", '');
     ;
 
 for (let i = 0; i < options.length; i++) {
@@ -59,6 +63,8 @@ if (!program.pbiviz && !program.resources) {
 
 VisualPackage.loadVisualPackage(cwd).then((visualPackage) => {
     ConsoleWriter.info('Building visual...');
+
+    PreProcessor.processPbiviz(visualPackage, program);    
 
     let buildOptions = {
         minify: program.minify,
