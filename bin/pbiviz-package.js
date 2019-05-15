@@ -69,7 +69,6 @@ VisualPackage.loadVisualPackage(cwd).then((visualPackage) => {
         preProcessOptions: {
             tag: program.tag,
             withGuidPrefix: program.withGuidPrefix,
-            buildVersion: program.buildVersion,
             buildConfigFiles: program.buildConfigFiles
         }
     };
