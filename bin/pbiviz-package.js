@@ -32,7 +32,6 @@ let ConsoleWriter = require('../lib/ConsoleWriter');
 let PbivizBuilder = require('../lib/PbivizBuilder');
 let VisualBuilder = require('../lib/VisualBuilder');
 let CommandHelpManager = require('../lib/CommandHelpManager');
-let PreProcessor = require('../lib/PreProcessor');
 let options = process.argv;
 
 program
@@ -40,9 +39,9 @@ program
     .option('--no-pbiviz', "Doesn't produce a pbiviz file (must be used in conjunction with resources flag)")
     .option('--no-minify', "Doesn't minify the js in the package (useful for debugging)")
     .option('--no-plugin', "Doesn't include a plugin declaration to the package (must be used in conjunction with --no-pbiviz and --resources flags)")
-    .option('--with-guid-prefix', "Generates build with guid prefixed with 'VALQ_' to differentiate custom build from the published build")
-    .option('--build-version <version>', "Generates build with the sepcified verison")
+    .option('--with-guid-prefix <prefix>', "Generates build with guid prefixed with 'VALQ_' to differentiate custom build from the published build")
     .option('--tag <tag>', "Adds provided tag to the visual's display name", '')
+    .option('--build-config-files <files>', "Provide comma separated list of build json files")
     ;
 
 for (let i = 0; i < options.length; i++) {
@@ -64,11 +63,15 @@ if (!program.pbiviz && !program.resources) {
 VisualPackage.loadVisualPackage(cwd).then((visualPackage) => {
     ConsoleWriter.info('Building visual...');
 
-    PreProcessor.processPbiviz(visualPackage, program);    
-
     let buildOptions = {
         minify: program.minify,
-        plugin: program.plugin || program.pbiviz
+        plugin: program.plugin || program.pbiviz,
+        preProcessOptions: {
+            tag: program.tag,
+            withGuidPrefix: program.withGuidPrefix,
+            buildVersion: program.buildVersion,
+            buildConfigFiles: program.buildConfigFiles
+        }
     };
 
     let builder = new VisualBuilder(visualPackage, buildOptions);

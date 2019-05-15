@@ -36,7 +36,9 @@ let options = process.argv;
 
 program
     .option('-p, --port [port]', 'set the port listening on')
-    .option('-m, --mute', 'mute error outputs');
+    .option('-m, --mute', 'mute error outputs')
+    .option('--build-config-files <files>', "Provide comma separated list of build json files")
+    ;
 
 for (let i = 0; i < options.length; i++) {
     if (options[i] == '--help' || options[i] == '-h') {
@@ -55,7 +57,10 @@ VisualPackage.loadVisualPackage(cwd).then((visualPackage) => {
     ConsoleWriter.info('Building visual...');
     let buildOptions = {
         namespace: visualPackage.config.visual.guid + '_DEBUG',
-        minify: false
+        minify: false,
+        preProcessOptions: {
+            buildConfigFiles: program.buildConfigFiles
+        }
     };
     builder = new VisualBuilder(visualPackage, buildOptions);
     builder.build().then(() => {
