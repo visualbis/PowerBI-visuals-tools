@@ -39,7 +39,7 @@ program
     .option('--no-pbiviz', "Doesn't produce a pbiviz file (must be used in conjunction with resources flag)")
     .option('--no-minify', "Doesn't minify the js in the package (useful for debugging)")
     .option('--no-plugin', "Doesn't include a plugin declaration to the package (must be used in conjunction with --no-pbiviz and --resources flags)")
-    .option('--with-guid-prefix <prefix>', "Generates build with guid prefixed with the given prefix to differentiate custom build from the published build")
+    .option('--guid-prefix <prefix>', "Generates build with guid prefixed with the given prefix to differentiate custom build from the published build")
     .option('--tag <tag>', "Adds provided tag to the visual's display name", '')
     .option('--build-config-files <files>', "Provide comma separated list of build json files")
     ;
@@ -68,7 +68,7 @@ VisualPackage.loadVisualPackage(cwd).then((visualPackage) => {
         plugin: program.plugin || program.pbiviz,
         preProcessOptions: {
             tag: program.tag,
-            withGuidPrefix: program.withGuidPrefix,
+            guidPrefix: program.guidPrefix,
             buildConfigFiles: program.buildConfigFiles
         }
     };
