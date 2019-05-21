@@ -42,6 +42,7 @@ program
     .option('--guid-prefix <prefix>', "Generates build with guid prefixed with the given prefix to differentiate custom build from the published build")
     .option('--tag <tag>', "Adds provided tag to the visual's display name", '')
     .option('--build-config-files <files>', "Provide comma separated list of build json files")
+    .option('--build-version', "Generate visual with specified build verison")
     ;
 
 for (let i = 0; i < options.length; i++) {
@@ -69,7 +70,8 @@ VisualPackage.loadVisualPackage(cwd).then((visualPackage) => {
         preProcessOptions: {
             tag: program.tag,
             guidPrefix: program.guidPrefix,
-            buildConfigFiles: program.buildConfigFiles
+            buildConfigFiles: program.buildConfigFiles,
+            buildVersion: program.buildVersion
         }
     };
 
