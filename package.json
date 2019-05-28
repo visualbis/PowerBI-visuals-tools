@@ -1,6 +1,6 @@
 {
   "name": "@visualbi/powerbi-visuals-tools",
-  "version": "2.3.2-rc1",
+  "version": "2.3.2-rc2",
   "description": "Command line tool for creating and publishing visuals for Power BI",
   "main": "./lib/VisualPackage.js",
   "scripts": {
