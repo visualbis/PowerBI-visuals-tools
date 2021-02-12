@@ -2,6 +2,43 @@
 
 This page contains information about changes to the PowerBI Visual Tools (pbiviz).
 
+## 3.1.15
+* Webpack plugin update
+* npm audit package-lock patch
+
+## 3.1.14
+* Fix output library name for debug mode
+
+## 3.1.12
+* Command package rolling back to fix issues with some commands running
+
+## 3.1.11
+* Packages update. Fixed https://github.com/microsoft/PowerBI-visuals-tools/issues/304
+
+## 3.1.10
+* Packages update: Uglify-js is replaced by Terser
+
+## 3.1.9
+* Fix loading the old visual projects
+* Fix loading old [`formattingutils`](https://github.com/microsoft/powerbi-visuals-utils-formattingutils/tree/72a136aca836e60042be35b1cd2ae10a07837ba8) in the old visual projects.
+
+## 3.1.8
+* Update `powerbi-visuals-webpack-plugin` to 2.2.1
+
+## 3.1.7
+* Fix vscode workspace settings template
+* Fix certificate tool error handling
+
+## 3.1.6
+* Fix webpack configureation include regex
+* Templates update
+
+## 3.1.5
+* Templates update
+
+## 3.1.4
+* Packages update
+
 ## 3.1.3
 * Remove `@babel/polyfill`
 * Replace `webpack-visualizer-plugin` by `webpack-bundle-analyzer`
