@@ -26,7 +26,7 @@
 "use strict";
 
 import "./../style/visual.less";
-import powerbi from "powerbi-visuals-api";
+import powerbi from "@visualbi/powerbi-visuals-api";
 import VisualConstructorOptions = powerbi.extensibility.visual.VisualConstructorOptions;
 import VisualUpdateOptions = powerbi.extensibility.visual.VisualUpdateOptions;
 import IVisual = powerbi.extensibility.visual.IVisual;

@@ -43,7 +43,7 @@ This page contains information about changes to the PowerBI Visual Tools (pbiviz
 
 ## 3.3.2
 
-* Extended `"powerbi-visuals-api"` usage up to version 3.2.0 and higher
+* Extended `"@visualbi/powerbi-visuals-api"` usage up to version 3.2.0 and higher
 
 ## 3.3.1
 
@@ -54,7 +54,7 @@ This page contains information about changes to the PowerBI Visual Tools (pbiviz
 
 ### **⚠ BREAKING CHANGES**
 
-* Starting from tools version 3.3.0, it expects usage of ["powerbi-visuals-api": ">=3.8.0"](https://github.com/microsoft/powerbi-visuals-api/blob/master/CHANGELOG.md#382)
+* Starting from tools version 3.3.0, it expects usage of ["@visualbi/powerbi-visuals-api": ">=3.8.0"](https://github.com/microsoft/powerbi-visuals-api/blob/master/CHANGELOG.md#382)
 
 ### **Features**
 

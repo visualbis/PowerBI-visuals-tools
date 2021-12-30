@@ -64,7 +64,7 @@ describe("E2E - webpack tools", () => {
         };
         fs.writeJsonSync(path.join(visualPath, 'package.json'), packageJson);
         
-        fs.removeSync(path.join(visualPath, "node_modules", "powerbi-visuals-api"));
+        fs.removeSync(path.join(visualPath, "node_modules", "@visualbi/powerbi-visuals-api"));
     };
 
     it("Should not add empty dependencies option into visual config", () => {
@@ -83,7 +83,7 @@ describe("E2E - webpack tools", () => {
         FileSystem.runPbiviz('package');
 
         let packageJson = fs.readJsonSync(path.join(visualPath, 'package.json'));
-        expect(packageJson.dependencies["powerbi-visuals-api"]).toBeDefined();
+        expect(packageJson.dependencies["@visualbi/powerbi-visuals-api"]).toBeDefined();
     });
 
     it("Should install powerbi-visual-api with version from pbiviz.json on 'pbiviz start/package'", () => {
@@ -92,11 +92,11 @@ describe("E2E - webpack tools", () => {
         FileSystem.runPbiviz('package');
 
         let packageJson = fs.readJsonSync(path.join(visualPath, 'package.json'));
-        expect(packageJson.dependencies["powerbi-visuals-api"]).toBeDefined();
+        expect(packageJson.dependencies["@visualbi/powerbi-visuals-api"]).toBeDefined();
         expect(semver.major(pbivizJson.apiVersion))
-            .toBe(semver.major(packageJson.dependencies["powerbi-visuals-api"].replace(/\^|\~/, ""))); // eslint-disable-line no-useless-escape
+            .toBe(semver.major(packageJson.dependencies["@visualbi/powerbi-visuals-api"].replace(/\^|\~/, ""))); // eslint-disable-line no-useless-escape
         expect(semver.minor(pbivizJson.apiVersion))
-            .toBe(semver.minor(packageJson.dependencies["powerbi-visuals-api"].replace(/\^|\~/, ""))); // eslint-disable-line no-useless-escape
+            .toBe(semver.minor(packageJson.dependencies["@visualbi/powerbi-visuals-api"].replace(/\^|\~/, ""))); // eslint-disable-line no-useless-escape
     });
 
 });

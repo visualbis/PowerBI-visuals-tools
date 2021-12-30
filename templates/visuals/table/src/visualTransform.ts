@@ -1,5 +1,5 @@
 "use strict";
-import powerbi from "powerbi-visuals-api";
+import powerbi from "@visualbi/powerbi-visuals-api";
 import DataView = powerbi.DataView;
 import DataViewCategorical = powerbi.DataViewCategorical;
 import DataViewValueColumns = powerbi.DataViewValueColumns;
